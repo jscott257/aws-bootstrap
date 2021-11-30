@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Parameters:
+Pa.rameters:
   EC2InstanceType:
     Type: String
   EC2AMI:
@@ -124,3 +124,9 @@ Resources:
           Value: !Ref AWS::StackName
 
 Outputs:
+  InstanceEndpoint:
+    Description: The DNS name for the created instance
+    Value: !Sub "http://${Instance.PublicDnsName}:8080" 
+    Export:
+      Name: InstanceEndpoint
+      
